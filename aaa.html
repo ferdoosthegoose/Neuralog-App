@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <link rel="stylesheet" href="aaa.css">
+    <link href='https://fonts.googleapis.com/css?family=Barlow' rel='stylesheet'>
+    
+
+</head>
+<body>
+  
+
+<form>     <label id="question" for="date-input">Do you have a date in mind?</label>
+    <input type="date" id="date-input" name="date-input">
+
+    <br>
+    <br> 
+    <input id="file" type="file" accept="image/*" onchange="loadFile(event)" style="display:none;">
+    <label for="file" id="button" style="cursor:pointer;">Add Photo</label>
+    <img id="preview" src="" style="display:none; max-width:200px; margin-top:10px;">
+    <br>
+    <textarea class="textarea" placeholder="Describe the memory..." rows="4" cols="40"></textarea>
+    <button type="submit" id="submit">Submit</button>
+</form>
+   
+    <script>
+
+    function loadFile(event) {
+        const image = document.getElementById('preview');
+        const file = event.target.files[0];
+        if (file) {
+            image.src = URL.createObjectURL(file);
+            image.style.display = 'block';
+        } else {
+            image.src = '';
+            image.style.display = 'none';
+        }
+    }
+
+    
+    </script>
+
+
+   <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) =>{
+            e.preventDefault();
+            const dateInput = document.getElementById('date-input').value;
+            const textarea = document.querySelector('.textarea').value;
+            const image = document.getElementById('preview').src;
+
+            let memories = JSON.parse(localStorage.getItem('memories')) || [];
+
+            let memory = { date: dateInput, description: textarea };
+            if (image) memory.image = image;
+
+            memories.push(memory);
+
+            localStorage.setItem('memories', JSON.stringify(memories));
+
+            window.location.href = 'navbar copy.html';
+        });
+
+    </script>
+
+</body>
+</html>

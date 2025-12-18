@@ -1,0 +1,52 @@
+*{
+    font-family: barlow;
+    font-weight: bold;
+
+}
+
+body{
+  margin:100px;
+  padding: 25px;
+  font-size: 1em;
+  font-family: barlow;
+  font-weight: bold;
+}
+
+
+.textarea {
+  background-color: #dddddd;
+  color: #4c4c4c;
+  padding: 1em;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  outline: none;
+  font-family: "Heebo", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  width: 200px;
+  height: 100px;
+  transition: all 0.2s;
+  margin-top: 20px;;
+  
+}
+
+#file{
+    display: none;
+}
+
+#button{
+    height: 100px;
+    width: 150px;
+    border-radius: 6px;
+    border: 1px dashed #999;
+    padding: 5px 15px;
+    margin: 15px;
+
+}
+
+#button:hover {
+    color:#5b5b79;
+    border: dashed #5b5b79;
+}
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik|Sofia|">
+    <link rel="stylesheet" href="person.css">
+    
+</head>
+<body>
+    <div class="profile-card">
+        <div class="profile-header">
+    
+        </div>
+        
+        <div class="profile-info">
+
+        </div>
+
+        <div class="name-age">
+
+        </div>
+
+        <div class="relation">
+
+        </div>
+
+         <div class="voice-note-container">
+                <button class="voice-note-button" id="voiceNoteButton">
+                    <div class="play-icon"></div>
+                    <div class="voice-note-info">
+                        <h4>Rusty's Voice Note</h4>
+                        <p>0:12 - Tap to listen</p>
+                    </div>
+                </button>
+                <div class="progress-bar">
+                    <div class="progress" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+            
+        <div class="bio-text">
+            
+        </div>
+
+        <br>
+
+        <div class="xbuttons">
+            <button id="removePerson">Remove Person</button>
+            <button id="home" onclick="window.location.href='navbar copy.html'">Home</button>
+        </div>
+    </div>
+
+    <script>
+
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+    const name = getQueryParam('person');
+    const people = JSON.parse(localStorage.getItem('people')) || [];
+    const person = people.find(p => p.name === name);
+
+    if (person) {
+        document.querySelector('.name-age').textContent = `${person.name}, ${person.age}`;
+        document.querySelector('.relation').textContent ='Your '+ person.relation;
+        document.querySelectorAll('.bio-text').forEach(el => el.textContent = person.bio);
+        if (person.image) {
+            const img = document.createElement('img');
+            img.src = person.image;
+            img.style.maxWidth = '200px';
+            document.querySelector('.profile-header').appendChild(img);
+        }
+    }
+
+   
+});
+
+
+</script>
+</body>
+</html>

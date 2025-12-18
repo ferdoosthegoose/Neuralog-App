@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburger Menu</title>
+    <link rel="stylesheet" href="navbar copy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+<body id = "body1">
+    <header id="header">
+    <nav>
+        <ul class='nav-bar'>
+            <input type='checkbox' id='check' />
+            <span class="menu">
+                 <div class="add">
+                    <a href="people.html"><button id="addPeople">+</button></a>
+                </div>
+                <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+            </span>
+            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+        </ul>
+    </nav>
+    </header>
+</body>
+<body id = "body2">
+<container>
+        <div class="timeline-wrapper">
+        <ul class="timeline" id="timelineList"></ul>
+<script>
+const memories = JSON.parse(localStorage.getItem('memories')) || [];
+const timelineList = document.getElementById('timelineList');
+timelineList.innerHTML = '';
+if (memories.length > 0) {
+    memories.forEach(memory => {
+        const li = document.createElement('li');
+        li.className = 'event';
+        li.setAttribute('data-date', memory.date || '');
+        li.innerHTML = `
+            <span class="title">${memory.title || ''}</span>
+            <div class="data">
+                <h3>${memory.title || ''}</h3>
+                <small>${memory.date || ''}</small>
+                <p>${memory.description || ''}</p>
+                ${memory.image ? `<img src="${memory.image}" alt="Memory Image" style="max-width: 50%; height: auto;">` : ''}
+                <span class="close">Close</span>
+            </div>
+        `;
+        timelineList.appendChild(li);
+    });
+}
+</script>
+        </ul>
+    </div>
+</container>
+      <script>
+        const timeline_wrapper = document.querySelectorAll('.timeline-wrapper');
+         timelines = document.querySelectorAll('.timeline li .data');
+         for(const time of timelines){
+        time.onclick = () => time.classList.toggle('show');
+        };
+        timeline_wrapper.addEventListener('mousemove', (event) => {
+            const timeline = document.querySelector('.timeline');
+            let scroll_width = event.pageX / timeline_wrapper.clientWidth * (timeline.clientWidth - timeline_wrapper.clientWidth);
+            timeline.style.left = scroll_width.toFixed(1) + 'px';
+        })
+    </script>
+    <div id = "addbutton">
+    <a href="aaa.html"><center><button id="secondAddButton">+</button></a<center></a>
+    </div>
+    </div>
+</body>
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+    const people = JSON.parse(localStorage.getItem('people')) || [];
+    const menu = document.querySelector('.menu');
+    // Remove old people links if any
+    menu.querySelectorAll('.person-link').forEach(el => el.remove());
+    // Insert people links at the top of the menu
+    people.forEach((person, idx) => {
+        const li = document.createElement('li');
+        li.className = 'person-link';
+        const a = document.createElement('a');
+        a.href = `person.html?person=${encodeURIComponent(person.name)}`;
+        a.textContent = person.name;
+        li.appendChild(a);
+        menu.insertBefore(li, menu.firstChild);
+    });
+});
+</script>
+</html>

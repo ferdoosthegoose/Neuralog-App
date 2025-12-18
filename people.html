@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Person</title>
+    <link href='https://fonts.googleapis.com/css?family=Barlow' rel='stylesheet'>
+    <link rel="stylesheet" href="people.css">
+    
+</head>
+<body>
+   <div>
+    <form>    
+        <label id="name" for="name-input">What's this persons name?</label>
+        <br>
+        <input type="text" id="name-input" name="name-input">
+        <br>
+        <br>
+
+        <label id="age" for="age-input">How old are they?</label>
+        <br>
+        <input type="number" id="age-input" name="age-input">
+        <br>
+        <br>
+        <label id="relation" for="relation-input">What's your relation to them?</label>
+        <br>
+        <input type="text" id="relation-input" name="relation-input">
+        <br>
+        <br>
+        <label id="bio" for="bio-input">Write a short bio about them</label>
+        
+        <textarea class="bio-textarea" placeholder="Write a short bio..." rows="4" cols="40"></textarea>
+
+
+        <div class="voice-note-container">
+                <button class="voice-note-button" id="voiceNoteButton">
+                    <div class="play-icon"></div>
+                    <div class="voice-note-info">
+                        <h4>Record Voice Note Here</h4>
+                        <p>0:12 - Tap to Record</p>
+                    </div>
+                </button>
+                <div class="progress-bar">
+                    <div class="progress" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+        <label for="file" id="button" style="cursor:pointer;">Add Photo</label>
+        <img id="preview" src="" style="display:none; max-width:200px; margin-top:10px;">
+        <br>
+        <br>
+        <button type="submit" id="submit">Submit</button>
+    </form>
+   </div>
+
+    <script>
+    
+document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name-input').value;
+    const age = document.getElementById('age-input').value;
+    const relation = document.getElementById('relation-input').value;
+    const bio = document.querySelector('.bio-textarea').value;
+    const image = document.getElementById('preview').src;
+
+    let people = JSON.parse(localStorage.getItem('people')) || [];
+    people.push({ name, age, relation, bio, image });
+    localStorage.setItem('people', JSON.stringify(people));
+    window.location.href = 'navbar copy.html';
+});
+
+// Optional: Image preview logic
+document.getElementById('button').addEventListener('click', function() {
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+    fileInput.onchange = function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.getElementById('preview');
+                img.src = e.target.result;
+                img.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+    fileInput.click();
+});
+</script>
+</body>
+</html>

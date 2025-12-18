@@ -1,0 +1,145 @@
+
+body{
+  margin:100px;
+  padding: 25px;
+  font-size: 1em;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: bold;
+}
+
+.textarea {
+  background-color: #dddddd;
+  color: #4c4c4c;
+  padding: 1em;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  outline: none;
+  font-family: "Heebo", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  width: 200px;
+  height: 100px;
+  transition: all 0.2s;
+  margin-top: 20px;;
+  
+}
+.distance {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+                .voice-note-container {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .voice-note-button {
+            display: flex;
+            align-items: center;
+            background-color: #F1F1F1;
+            border-radius: 20px;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+        .voice-note-button:hover {
+            background-color: #E5E5E5;
+        }
+        .play-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #91ADD7;
+            border-radius: 50%;
+            margin-right: 15px;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .play-icon:before {
+            content: "";
+            position: absolute;
+            left: 11px;
+            top: 8px;
+            width: 0;
+            height: 0;
+            border-top: 7px solid transparent;
+            border-left: 12px solid white;
+            border-bottom: 7px solid transparent;
+        }
+        .voice-note-info h4 {
+            margin: 0 0 3px 0;
+            font-size: 16px;
+        }
+        .voice-note-info p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .progress-bar {
+            height: 3px;
+            background-color: #ddd;
+            border-radius: 3px;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .progress {
+            position: absolute;
+            height: 100%;
+            width: 0%;
+            background-color: #AED3FE;
+            transition: width 0.1s linear;
+        }
+        .playing .play-icon {
+            background-color: #547DAC;
+        }
+        .playing .play-icon:before {
+            border-left: 4px solid white;
+            border-right: 4px solid white;
+            height: 14px;
+            width: 4px;
+            left: 9px;
+            top: 2px;
+        }
+#file{
+ display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+}
+
+#button{
+    height: 100px;
+    width: 150px;
+    border-radius: 6px;
+    border: 1px dashed #999;
+    padding: 5px 15px;
+    margin: 15px;
+
+}
+
+#button:hover {
+    color:#5b5b79;
+    border: dashed #5b5b79;
+}
+
+.name-age{
+    font-size: 50px;
+    margin-top: 20px;
+       font-family: "Rubik", sans-serif;
+    
+}
+
+.relation{
+    font-size: 20px;
+    color: grey;
+    margin-top:2px;
+    margin-bottom:10px;
+    margin-left:10px;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>title</title>
+    <link rel="stylesheet" href="c.timeline.css" />
+
+</head>
+<body>
+
+
+
+
+
+
+<container>
+        <div class="timeline-wrapper">
+        <ul class="timeline">
+            <li data-date="Sep 16, 2024" class="event">
+                <span class="title">Mother's Bday</span>
+                <div class="data">
+                    <h3>Day you've been waiting for.</h3>
+                    <small>Sep 16, 2024</small>
+                    
+                    <p>Lorem ipsum dolor sit amet, consectetur 
+                    adipiscing elit. Nulla convallis egestas rhoncus.</p>
+                    <span class="close">Close</span>
+
+            </li>
+             <li data-date="Jan 1, 2025" class="event">
+                <span class="title">Happy New Year</span>
+                <div class="data">
+                    <h3>Day you've been waiting for.</h3>
+                    <small>Jan 1, 2025</small>
+                    <p>Lorem ipsum dolor sit amet, consectetur 
+                    adipiscing elit. Nulla convallis egestas rhoncus.</p>
+                    <span class="close">Close</span>
+
+            </li>
+            <li data-date="Feb 14, 2025" class="event">
+                <span class="title">Valentine's Day</span>
+                <div class="data">
+                    <h3>Day you've been waiting for.</h3>
+                    <small>Feb 14, 2025</small>
+                    <p>Lorem ipsum dolor sit amet, consectetur 
+                    adipiscing elit. Nulla convallis egestas rhoncus.</p>
+                    <span class="close">Close</span>
+
+            </li>
+            <li data-date="Feb 15, 2025" class="event">
+                <span class="title">day 1</span>
+                <div class="data">
+                    <h3>Day you've been waiting for.</h3>
+                    <small>Feb 15, 2025</small>
+                    <p>Lorem ipsum dolor sit amet, consectetur 
+                    adipiscing elit. Nulla convallis egestas rhoncus.</p>
+                    <span class="close">Close</span>
+
+            </li>
+            <li data-date="Feb 16, 2025" class="event">
+                <span class="title">day 2</span>
+                <div class="data">
+                    <h3>Day you've been waiting for.</h3>
+                    <small>Feb 16, 2025</small>
+                    <p>Lorem ipsum dolor sit amet, consectetur 
+                    adipiscing elit. Nulla convallis egestas rhoncus.</p>
+                    <span class="close">Close</span>
+
+            </li>
+        
+        </ul>
+    </div>
+
+
+
+
+
+</container>
+      <script>
+
+        const timeline_wrapper = document.querySelectorAll('.timeline-wrapper');
+         timelines = document.querySelectorAll('.timeline li .data');
+
+         for(const time of timelines){
+        time.onclick = () => time.classList.toggle('show');
+        };
+
+        timeline_wrapper.addEventListener('mousemove', (event) => {
+            const timeline = document.querySelector('.timeline');
+            let scroll_width = event.pageX / timeline_wrapper.clientWidth * (timeline.clientWidth - timeline_wrapper.clientWidth);
+            
+
+            timeline.style.left = scroll_width.toFixed(1) + 'px';
+
+        })
+
+       
+    </script>
+
+    <div id ="addbutton">
+        
+    <a href="aaa.html"><center><button id="add" onclick="dosomething();">+</button><center></a>
+
+    <div class="navbar">
+    </div>
+
+    </div>
+
+
+
+
+</body>
+</html>
